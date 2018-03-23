@@ -24,7 +24,7 @@
                             <label class="control-label">School Location</label>
                             <select name="location" id="location" class="form-control">
                                 @foreach($locations as $location)
-                                    <option value="{{$location->id}}">{{$location->name}}</option>
+                                    <option value="{{$location->location_id}}">{{$location->location_name}}</option>
                                 @endforeach
                             </select>
                             <label class="control-label">School Bio</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -31,5 +32,13 @@ class HomeController extends Controller
     public function yourPosts()
     {
         return view('./posts/home');
+    }
+
+    public function findSchools()
+    {
+        $uid = auth()->user()->id;
+        $allSchools = DB::table('locations')->leftJoin('schools', 'schools.location', '=', 'locations.location_id')->paginate(3);
+
+        return view('pages.findSchools')->with('schools', $allSchools);
     }
 }

@@ -14,14 +14,14 @@ class Locations extends Migration
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('city_id')->unsigned();
-            $table->string('name');
-            $table->string('avatar')->default('default.jpg');
+            $table->increments('location_id');
+            $table->integer('location_city_id')->unsigned();
+            $table->string('location_name');
+            $table->string('location_avatar')->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('location_city_id')->references('id')->on('cities');
         });
     }
 

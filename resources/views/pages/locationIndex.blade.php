@@ -13,12 +13,12 @@
                                 @foreach($locations as $location)
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="./uploads/avatars/{{$location->avatar}}" style="width:250px; height:150px; border-radius:2%; margin-right:25px; ">
+                                        <img src="./uploads/avatars/{{$location->location_avatar}}" style="width:250px; height:150px; border-radius:2%; margin-right:25px; ">
                                     </div>
                                     <div class="col-md-1">
                                     </div>
                                     <div class="col-md-7">
-                                        <h3>{{$location->name}}</h3>
+                                        <h3>{{$location->location_name}}</h3>
                                         <small>Created on {{$location->created_at}}</small>
                                     </div>
                                 </div>

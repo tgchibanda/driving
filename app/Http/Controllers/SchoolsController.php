@@ -41,7 +41,7 @@ class SchoolsController extends Controller
 
         $data = array(
             'cities' => $cities,
-            'locations'=> $locations
+            'locations'=> $locations,
         );
 
         return view('pages.createSchool')->with($data);
@@ -63,7 +63,7 @@ class SchoolsController extends Controller
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(250, 150)->save( public_path('./uploads/avatars/' .$filename ) );
+            Image::make($avatar)->resize(250, 200)->save( public_path('./uploads/avatars/' .$filename ) );
         }
         else {
             $filename = "default.jpg";

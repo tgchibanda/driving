@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
+use App\City;
 use DB;
 use Image;
 
@@ -16,7 +17,7 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        $locations = Location::orderBy('id', 'desc')->paginate(2);
+        $locations = Location::orderBy('location_id', 'desc')->paginate(2);
         return view('pages.locationIndex')->with('locations', $locations);
     }
 
@@ -27,7 +28,12 @@ class LocationsController extends Controller
      */
     public function create()
     {
-        return view('pages.createLocation');
+        $cities = City::all();
+
+        $data = array(
+            'cities' => $cities,
+        );
+        return view('pages.createLocation')->with($data);
     }
 
     /**
@@ -52,8 +58,9 @@ class LocationsController extends Controller
         }
 
         $location = new Location;
-        $location->name = $request->input('name');
-        $location->avatar = $filename;
+        $location->location_name = $request->input('name');
+        $location->location_city_id = $request->input('city');
+        $location->location_avatar = $filename;
         $location->save();
 
         return redirect('./locations')->with('success', 'Location Created');

@@ -19,20 +19,20 @@
         @include ('inc/messages');
                 <div class="container">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Sidebar - Quick links</div>
                                     <div class="panel-body">
                                         This is the body<br>
                                         We Sell Space<br>
-                                        <img src="../public/images/add.jpg" style="height:250px; width:250px;">
+                                        <img src="../public/images/add.jpg" style="height:250px; width:200px;">
                                     </div>
                                     <div class="panel-footer">
                                         This ends
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="panel panel-default">
                 @yield('content')
             </div>
