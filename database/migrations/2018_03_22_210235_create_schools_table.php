@@ -14,10 +14,14 @@ class CreateSchoolsTable extends Migration
     public function up()
     {
         Schema::create('schools', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('avatar')->default('default.jpg');
+            $table->increments('school_id');
+            $table->string('school_name');
+            $table->integer('school_user_id');
+            $table->string('school_about');
+            $table->string('school_location');
+            $table->integer('school_contact');
+            $table->string('school_email')->unique();
+            $table->string('school_avatar')->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
         });

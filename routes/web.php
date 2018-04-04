@@ -47,11 +47,17 @@ Route::post('/createLocation', 'LocationsController@store');
 Route::get('/schools', 'SchoolsController@index');
 Route::get('/createSchool', 'SchoolsController@create');
 Route::post('/createSchool', 'SchoolsController@store');
+
 Route::get('/test', function(){
     return Auth::user()->test();
 });
-
+Route::get('/followSchool/{id}', 'HomeController@followSchool');
+Route::get('/requests', 'HomeController@requests');
 Route::get('/findSchools', 'HomeController@findSchools');
+Route::get('/accept/{id}/{name}', 'HomeController@accept');
+Route::get('/following', 'HomeController@following');
+Route::get('/viewSchool/{id}', 'HomeController@viewSchool');
+Route::resource('schoolreview', 'SchoolReviewController');
 
 Auth::routes();
 

@@ -3,30 +3,28 @@
 
 @section('content')
 
-<div class="panel-heading">Available Schools</div>
+<div class="panel-heading">Your Requests</div>
 <div class="panel-body">
         <div class="col-md-12" align="center">
             @if(count($schools)>0)
             @foreach($schools as $school)
             <div class="col-md-4">
                     <div class="thumbnail">
-                    <img src="./uploads/avatars/{{$school->school_avatar}}" style="width:250px; height:200px; border-radius:2%; margin-right:25px; ">
+                    <img src="./uploads/avatars/{{$school->avatar}}" style="width:250px; height:200px; border-radius:2%; margin-right:25px; ">
                     <br>
                     
-                    <p><b>{{$school->school_name}}</b></p>
-                    <p><font color="primary">In: {{$school->location_name}}</font></p>
-
+                    <p><b>{{$school->name}}</b></p>
+                    <font color="primary">{{$school->email}}</font>
+                    <p><small>Created on {{$school->created_at}}</small></p>
 
                     <?php
 
-                        $qry = DB::table('friendships')->where('user_requested', '=', $school->id)
+                        $qry = DB::table('friendships')->where('user_requested', '=', $school->school_id)
                         ->where('requester', '=', Auth::user()->id)->first();
                         if($qry==''){
-                            
                     ?>
-                    <p><a href="./viewSchool/{{$school->school_id}}" class="btn btn-success">View Profile</a></p>
+                    <p><a href="./accept/{{$school->id}}/{{$school->name}}" class="btn btn-success">Accept</a></p>
                         <?php
-                            
                         }
                         else {
                                ?>
@@ -40,7 +38,7 @@
             @endforeach
             
             @else
-                    <p>No schools are available.</p>
+                    <p>No requests are available.</p>
             @endif
             
 </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.posts')
 
 @section('content')
 <div class="panel-heading">Edit Post</div>

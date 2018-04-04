@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.posts')
 
 @section('content')
-       <h1>{{$post->title}}</h1>
-       <a href="../posts" class="btn btn-default">Go Back</a>
+<div class="panel-heading">{{$post->title}}</div>
+<div class="panel-body">
+       <p><a href="../posts" class="btn btn-default">Go Back</a></p>
             <div>
                 {!!$post->body!!}
             </div>
@@ -26,4 +27,5 @@
                 </div>
                 @endif
             @endif
+</div>
 @endsection

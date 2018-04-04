@@ -25,7 +25,9 @@ class SchoolsController extends Controller
         return $schoolProfileOnly;
         */
 
-        $schools = School::orderBy('id', 'desc')->paginate(2);
+        $schools = School::orderBy('school_id', 'desc')
+        ->where('school_user_id', '=', auth()->user()->id)
+        ->paginate(2);
         return view('pages.schoolsIndex')->with('schools', $schools);
     }
 
@@ -80,12 +82,13 @@ class SchoolsController extends Controller
         return $school;
         */
         $school = new School;
-        $school->name = $request->input('name');
-        $school->email = $request->input('email');
-        $school->contact = $request->input('contact');
-        $school->location = $request->input('location');
-        $school->about = $request->input('about');
-        $school->avatar = $filename;
+        $school->school_name = $request->input('name');
+        $school->school_email = $request->input('email');
+        $school->school_contact = $request->input('contact');
+        $school->school_location = $request->input('location');
+        $school->school_about = $request->input('about');
+        $school->school_avatar = $filename;
+        $school->school_user_id = auth()->user()->id;
         $school->save();
 
         return redirect('./schools')->with('success', 'School Created');

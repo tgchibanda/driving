@@ -1,7 +1,8 @@
-@extends('layouts.posts')
+@extends('layouts.app')
 
 @section('content')
-       <h1>Posts</h1>
+<div class="panel-heading">Posts</div>
+<div class="panel-body">
        @if(count($posts)>0)
             @foreach($posts as $post)
             <div class="well">
@@ -13,4 +14,5 @@
        @else
             <p>No Posts</p>
        @endif
+</div>
 @endsection

@@ -1,5 +1,5 @@
 
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
   
@@ -28,6 +28,8 @@
                         <li><a href="./about">About</a></li>
                         <li><a href="./services">Services</a></li>
                         <li><a href="./posts">Blog</a></li>
+                        <li><a href="./findSchools">Schools</a></li>
+                        <li><a href="./requests">Requests</a></li>
                       </ul>
   
   

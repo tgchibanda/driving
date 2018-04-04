@@ -5,6 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+//import StarRating from 'vue-star-rating';
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -17,6 +19,8 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 
+//Vue.component('star-rating', StarRating);
+Vue.component('star-rating', VueStarRating.default);
 const app = new Vue({
     el: '#app'
 });
