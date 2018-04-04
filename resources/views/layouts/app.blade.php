@@ -12,32 +12,49 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+    color: orange;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../public/images/bg.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+
 </head>
 <body>
+<div class="bg">
     <div id="app">
         @include ('inc/navbar');
         @include ('inc/messages');
         <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Sidebar - Quick links</div>
-                            <div class="panel-body" align="center">
-                                    <img src="../public/images/add2.jpg" style="height:250px; width:200px;">
-                                </div>
-                                <div class="panel-footer">
-                                    BMW
-                                </div>
-
-                                <div class="panel-body" align="center">
-                                        <img src="../public/images/add.jpg" style="height:200px; width:200px;">
-                                    </div>
-                                    <div class="panel-footer">
-                                        Shoes
-                                    </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                 @yield('content')
             </div>
@@ -54,5 +71,8 @@
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
     
+
+    
+</div>
 </body>
 </html>

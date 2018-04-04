@@ -106,7 +106,8 @@ class HomeController extends Controller
         ->where('gallery_school_id', $id)->get();
 
         $reviews = DB::table('school_reviews')
-        ->where('school_id', $id)->get();
+        ->leftJoin('users', 'users.id', '=', 'school_reviews.user_id')
+        ->where('school_reviews.school_id', $id)->get();
 
         $data = array(
             'school' => $school,
@@ -115,7 +116,7 @@ class HomeController extends Controller
         );
 
         
-        //return School::getStarRating();
+        //return $reviews;
         return view('pages.viewSchool')->with($data);
         
             }

@@ -1,80 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-
-
-</head>
-<body>
-    
 @extends('layouts.view')
 @section('content')
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-    
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-
-                <div class="item active">
-                        <img src="../uploads/banners/just.jpg" alt="Los Angeles" style="width:100%;">
-                        <div class="carousel-caption">
-                          
-                        </div>
-                      </div>
-    
-                @foreach($gallery as $gallery)
-                <div class="item">
-                        <img src="../uploads/banners/{{$gallery->gallery_image}}" style="width:100%; height:50%;">
-                        
-                      </div>                   
-                @endforeach
-
-
-          
-      
-        </div>
-    
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="panel-body">
         @foreach($school as $school)
     <div class="row">
@@ -85,7 +10,7 @@
 
                         
                         <img src="../uploads/avatars/{{$school->school_avatar}}" 
-                        class="img-responsive" style="width:370px; height:255px; border-radius:2%; margin-right:25px; ">
+                        class="img-responsive" style="width:100%; height:100%; border-radius:2%; margin-right:25px; ">
                         
                     </div>
                 </div>
@@ -118,11 +43,29 @@
                         <div class="panel-heading">Reviews</div>
                             <div class="panel-body">
                                 <div class="container">
-                                    <star-rating></star-rating>
-                                    @foreach($reviews as $review)
-                                        <li>
+                                        @foreach($reviews as $review)
+                                <div class="row">
+                                    <div class="col-md-2">
+                                            <img src="../uploads/avatars/{{$review->avatar}}" 
+                                            class="img-responsive" style="width:110px; height:105px; border-radius:50%; margin-right:25px; ">
+                                    </div>
+                                    <div class="col-md-6">
+                                            <p><b>{{$review->name}}</b></p>
+                                            <p>{{$review->school_review_headline}}</p>
                                             {{$review->school_review_description}}
-                                        </li>                    
+                                            <br>
+                                            <?php
+
+                                            for($j=0; $j<$review->school_review_rating; $j++){
+                                            ?>
+                                                <span class="fa fa-star checked"></span>
+                                            <?php
+                                                } 
+
+                                                ?>
+                                    </div>
+                                </div> 
+                                <hr>
                                     @endforeach
                                 </div>
                             </div>
@@ -132,9 +75,3 @@
 </div>
 
 @endsection
-
-
-
-
-</body>
-</html>
